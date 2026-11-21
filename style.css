@@ -73,6 +73,6 @@ p {
 .btn i {
     font-size: 20px;
 }
-.social icons:hover{
-color:#a066ff
+.social-icons a:hover {
+    color: #a066ff;
 }
