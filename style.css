@@ -46,20 +46,23 @@ nav a{
     background-color: white;
     color: black;
     padding: 14px 25px;
-    border-radius:12px;
+    border-radius:15px;
     font-weight: 600;
     font-size:18px;
     display: inline-block;
     display: inline-flex;
     align-items: center;
-    gap: 5px;
+    gap: 8px;
     transition: 0.3s;
 }
 .btn:hover {
     background-color: #a066ff;
     color: rgb(255, 255, 255);
 }
-
+.btn svg {
+    width: 1.2em;
+    height: 1.2em;
+}
 nav a::after {
     content: "";
     position: absolute;
