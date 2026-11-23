@@ -35,6 +35,11 @@ a{
 nav a{
     margin-left: 30px;
     position: relative;
+    font-size:large;
+}
+nav a:hover{
+    color: #8861ba;
+    transition: 0.4s;
 }
 #home{
     padding-bottom: 20px;
@@ -62,19 +67,6 @@ nav a{
 .btn svg {
     width: 1.2em;
     height: 1.2em;
-}
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    width: 0;
-    height: 2px;
-    background-color: #a066ff;
-    transition: 0.3s;
-}
-nav a:hover::after {
-    width: 100%;
 }
 p {
     margin: 20px 0 30px;
