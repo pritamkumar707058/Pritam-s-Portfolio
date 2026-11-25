@@ -42,7 +42,17 @@ nav a:hover{
     color: #8861ba;
     transition: 0.4s;
 }
+.menu-toggle,
+.nav-checkbox,
+.menu-backdrop {
+    display: none;
+}
 #home{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: calc(100svh - 340px);
     padding-bottom: 20px;
     padding-top: 60px;
     padding-left: 80px;
@@ -102,11 +112,13 @@ p {
 #contact h1 {
     display: flex;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 0;
 }
 #contact {
-    padding: 0;
-    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100svh - 340px);
 }
 body.contact-page {
     zoom: 1.05;
@@ -114,10 +126,13 @@ body.contact-page {
 #experience h1 {
     display: flex;
     justify-content: center;
-    margin-top: 60px;
+    margin-top: 0;
 }
 #experience {
-    padding-bottom: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100svh - 340px);
 }
 body.experience-page {
     zoom: 1.05;
@@ -161,4 +176,209 @@ body.experience-page {
 }
 #contact p span{
     font-size: 25px;
+}
+
+@media (max-width: 900px) {
+    header {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        z-index: 20;
+        padding: 24px 20px;
+        margin-bottom: 28px;
+    }
+
+    .nav-checkbox {
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        opacity: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+    }
+
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 44px;
+        height: 44px;
+        padding: 9px;
+        border-radius: 8px;
+        background: transparent;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 26px;
+        height: 3px;
+        border-radius: 3px;
+        background: #fff;
+    }
+
+    header nav {
+        display: none;
+        position: absolute;
+        top: calc(100% - 10px);
+        left: 20px;
+        right: 20px;
+        z-index: 21;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        width: auto;
+        padding: 10px 18px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 12px;
+        background: #1a0f33;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    header .nav-checkbox:checked ~ nav {
+        display: flex;
+    }
+
+    .nav-checkbox:focus-visible + .menu-toggle {
+        outline: 2px solid #a066ff;
+        outline-offset: 3px;
+    }
+
+    header nav a {
+        width: 100%;
+        margin: 0;
+        padding: 12px 0;
+        font-size: 16px;
+    }
+
+    header nav a + a {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    body:has(.nav-checkbox:checked) .menu-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 10;
+        background: rgba(26, 15, 51, 0.28);
+        backdrop-filter: blur(4px);
+    }
+
+    #home,
+    #contact,
+    #experience {
+        min-height: calc(100svh - 300px);
+    }
+
+    #home {
+        align-items: center;
+        padding: 24px 20px 48px;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: clamp(34px, 10vw, 44px);
+    }
+
+    h1 span {
+        font-size: clamp(38px, 12vw, 50px);
+    }
+
+    #contact h1 span,
+    #experience h1 span {
+        font-size: clamp(34px, 10vw, 50px);
+    }
+
+    #home p {
+        max-width: 36ch;
+        margin: 18px auto 22px;
+        font-size: 16px;
+    }
+
+    #home .social-icons {
+        justify-content: center;
+        margin-bottom: 22px;
+    }
+
+    #contact,
+    #experience {
+        padding: 24px 20px 48px;
+    }
+
+    #contact p,
+    #experience p {
+        width: 100%;
+        padding-top: 14px;
+        padding-bottom: 14px;
+        font-size: 17px;
+    }
+
+    #contact p span,
+    #experience p:first-of-type {
+        font-size: 20px;
+    }
+
+    #experience .contact-btn {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    #home,
+    #contact,
+    #experience {
+        transition: filter 180ms ease, opacity 180ms ease;
+    }
+
+    body.menu-open #home,
+    body.menu-open #contact,
+    body.menu-open #experience {
+        filter: blur(4px);
+        opacity: 0.55;
+        pointer-events: none;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    #home {
+        align-items: flex-start;
+        padding: 40px 36px;
+        text-align: left;
+    }
+
+    h1 {
+        font-size: clamp(50px, 7vw, 64px);
+    }
+
+    h1 span {
+        font-size: clamp(58px, 8vw, 76px);
+    }
+
+    #home p {
+        max-width: 45ch;
+        margin: 20px 0 30px;
+        font-size: 18px;
+    }
+
+    #home .social-icons {
+        justify-content: flex-start;
+    }
+
+    #home > .btn {
+        align-self: flex-start;
+    }
+}
+
+@media (max-width: 380px) {
+    nav {
+        gap: 10px 12px;
+    }
+
+    nav a {
+        font-size: 13px;
+    }
 }

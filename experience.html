@@ -2,18 +2,24 @@
 <html>
 <head>
     <title>Experience &amp; Education | Pritam's Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=4">
+    <link rel="stylesheet" href="style.css?v=11">
 </head>
 <body class="experience-page">
     <header>
         <a href="index.html"><h2 class="logo">pritam.</h2></a>
-        <nav>
+        <input class="nav-checkbox" type="checkbox" id="nav-toggle" aria-label="Toggle navigation menu">
+        <label class="menu-toggle" for="nav-toggle" aria-hidden="true">
+            <span></span><span></span><span></span>
+        </label>
+        <nav id="site-nav">
             <a href="index.html">Home.</a>
             <a href="experience.html">Experience &amp; Education.</a>
             <a href="contact.html">Contact.</a>
         </nav>
     </header>
+    <label class="menu-backdrop" for="nav-toggle" aria-hidden="true"></label>
     <section id="experience">
         <h1><span>Coming Soon.</span></h1>
         <p>Stay tuned! This page will be live soon.</p>
